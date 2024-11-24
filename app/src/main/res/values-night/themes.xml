@@ -1,0 +1,25 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.Memento" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your dark theme here. -->
+        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+        <item name="colorPrimary">@color/black</item>
+    </style>
+
+    <style name="CustomSearchInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="hintTextColor">@color/white</item>
+        <item name="android:textColorHint">@color/white</item>
+    </style>
+
+    <!-- Style for Search TextInputEditText -->
+    <style name="CustomSearchEditText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@color/color_1f1f1f</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">@dimen/dim_20sp</item>
+        <item name="android:fontFamily">@font/roboto_medium</item>
+        <item name="android:drawablePadding">@dimen/dim_4dp</item>
+        <item name="android:drawableTint">@color/color_8f8f8f</item>
+    </style>
+</resources>

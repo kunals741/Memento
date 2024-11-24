@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_0c090c"
+    android:paddingHorizontal="@dimen/dim_20dp"
+    tools:context=".MainActivity">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/tvHeader"
+                android:layout_width="212dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dim_60dp"
+                android:fontFamily="@font/roboto_medium"
+                android:text="@string/hello_kunal"
+                android:textColor="@color/white"
+                android:textSize="@dimen/dim_50sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/etSearch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dim_20dp"
+                android:autofillHints="false"
+                android:background="@drawable/drawable_8dp_round"
+                android:hint="@string/search_here"
+                android:inputType="text"
+                android:paddingHorizontal="@dimen/dim_16dp"
+                android:paddingVertical="@dimen/dim_18dp"
+                android:textColorHint="@color/color_8f8f8f50"
+                android:textSize="@dimen/dim_20sp"
+                app:layout_constraintTop_toBottomOf="@id/tvHeader" />
+
+            <ImageView
+                android:id="@+id/ivSearch"
+                android:layout_width="@dimen/dim_30dp"
+                android:layout_height="@dimen/dim_30dp"
+                android:layout_marginEnd="@dimen/dim_12dp"
+                android:background="@drawable/ic_search"
+                android:backgroundTint="@color/color_8f8f8f"
+                android:padding="@dimen/dim_4dp"
+                app:layout_constraintBottom_toBottomOf="@id/etSearch"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/etSearch" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvFolders"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dim_20dp"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/etSearch"
+                app:spanCount="2"
+                tools:listitem="@layout/item_note_card" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btnAddNFolder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:contentDescription="@string/btnactionbutton"
+        app:backgroundTint="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/ic_add"
+        app:tint="@color/black" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

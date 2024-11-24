@@ -1,0 +1,68 @@
+# Gradle files
+.gradle/
+build/
+
+# Local configuration file (sdk paths, etc)
+local.properties
+
+# Log files
+*.log
+
+# Android Studio specific files
+.idea/
+*.iml
+.gradle/
+captures/
+.externalNativeBuild/
+
+# Keystore files
+*.jks
+*.keystore
+
+# Miscellaneous
+*.swp
+*.tmp
+*.temp
+*.bak
+*.orig
+*.class
+.DS_Store
+Thumbs.db
+
+# Generated files
+build/
+app/build/
+*/build/
+
+# Kotlin build cache
+.kotlin/
+
+# Firebase and Google Services
+google-services.json
+.firebase/
+
+# Dependency caches
+**/cache/
+**/intermediates/
+
+# Test results
+**/test-results/
+**/test-output/
+
+# Compiled code
+*.class
+*.dex
+
+# MacOS files
+*.DS_Store
+
+# Android Studio Profiling files
+*.hprof
+
+# Proguard mapping
+mapping.txt
+output.json
+
+# JetBrains IDE specific files
+.idea/
+*.iml
