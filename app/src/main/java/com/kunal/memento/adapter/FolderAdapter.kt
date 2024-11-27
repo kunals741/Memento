@@ -7,14 +7,14 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.kunal.memento.databinding.ItemFolderCardBinding
-import com.kunal.memento.model.FolderModel
+import com.kunal.memento.db.entity.Folder
 
-class FolderAdapter(private var folderList: MutableList<FolderModel> = mutableListOf()) :
+class FolderAdapter(private var folderList: MutableList<Folder> = mutableListOf()) :
     RecyclerView.Adapter<FolderAdapter.FolderAdapterViewHolder>() {
 
     inner class FolderAdapterViewHolder(private val itemBinding: ItemFolderCardBinding) :
         RecyclerView.ViewHolder(itemBinding.root) {
-        fun bind(folder: FolderModel) {
+        fun bind(folder: Folder) {
             itemBinding.tvTitle.text = folder.folderName
         }
     }
@@ -35,15 +35,15 @@ class FolderAdapter(private var folderList: MutableList<FolderModel> = mutableLi
         holder.bind(folderList[position])
     }
 
-    fun updateData(newList: List<FolderModel>) {
+    fun updateData(newList: List<Folder>) {
         val diffResult = DiffUtil.calculateDiff(FolderAdapterDiffUtil(folderList, newList))
         folderList = newList.toMutableList()
         diffResult.dispatchUpdatesTo(this)
     }
 
     inner class FolderAdapterDiffUtil(
-        private val oldList: List<FolderModel>,
-        private val newList: List<FolderModel>
+        private val oldList: List<Folder>,
+        private val newList: List<Folder>
     ) : DiffUtil.Callback() {
         override fun getOldListSize() = oldList.size
 
