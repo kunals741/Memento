@@ -4,12 +4,15 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.kunal.memento.db.dao.FolderDao
-import com.kunal.memento.db.entity.Folder
+import androidx.room.TypeConverters
+import com.kunal.memento.db.dao.MementoDao
+import com.kunal.memento.db.entity.Folders
+import com.kunal.memento.db.entity.Note
 
-@Database(entities = [Folder::class], version = 1)
+@Database(entities = [Folders::class, Note::class], version = 1)
+@TypeConverters(Converters::class)
 abstract class MementoDatabase : RoomDatabase() {
-    abstract fun folderDao(): FolderDao
+    abstract fun folderDao(): MementoDao
 
     companion object {
         @Volatile
@@ -21,7 +24,8 @@ abstract class MementoDatabase : RoomDatabase() {
                     context.applicationContext,
                     MementoDatabase::class.java,
                     "Memento Database"
-                ).build()
+                ).fallbackToDestructiveMigration()
+                    .build()
                 INSTANCE = instance
                 instance
             }

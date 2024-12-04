@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/dim_12dp"
+    android:background="@drawable/drawable_8dp_round"
+    android:padding="@dimen/dim_16dp">
+
+    <!--    todo pending-->
+
+    <TextView
+        android:id="@+id/tvNoteTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto_medium"
+        android:textColor="@color/white"
+        android:textSize="@dimen/dim_20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Note Title" />
+
+    <TextView
+        android:id="@+id/tvNoteContent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dim_12dp"
+        android:textSize="@dimen/dim_18sp"
+        android:ellipsize="end"
+        android:maxLines="3"
+        android:textColor="@color/color_8f8f8f"
+        app:layout_constraintTop_toBottomOf="@id/tvNoteTitle"
+        tools:text="In publishing and graphic design, Lorem ipsum is a placeholder text commonly used.n In publishing and graphic design, Lorem ipsum is a placeholder text commonly used." />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

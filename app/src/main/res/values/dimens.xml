@@ -16,4 +16,6 @@
     <dimen name="dim_30sp">30sp</dimen>
     <dimen name="dim_12sp">12sp</dimen>
     <dimen name="dim_16sp">16sp</dimen>
+    <dimen name="dim_212dp">212dp</dimen>
+    <dimen name="dim_18sp">18sp</dimen>
 </resources>

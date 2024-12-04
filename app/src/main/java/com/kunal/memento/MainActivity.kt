@@ -7,11 +7,13 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import com.kunal.memento.adapter.FolderAdapter
+import com.kunal.memento.adapter.FolderClickListener
 import com.kunal.memento.adapter.GridSpacingItemDecoration
 import com.kunal.memento.databinding.ActivityMainBinding
+import com.kunal.memento.db.entity.Folders
 import kotlinx.coroutines.launch
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), FolderClickListener {
 
     private lateinit var binding: ActivityMainBinding
 
@@ -23,10 +25,11 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         initView()
         initObservers()
+        viewModel.getAllFolders()
     }
 
     private fun initView() = with(binding) {
-        rvFolders.adapter = FolderAdapter()
+        rvFolders.adapter = FolderAdapter(folderClickListener = this@MainActivity)
         rvFolders.addItemDecoration(
             GridSpacingItemDecoration(
                 2,
@@ -51,4 +54,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun getFolderAdapter() = (binding.rvFolders.adapter as FolderAdapter)
+
+    override fun onFolderClick(folder: Folders) {
+        NoteListActivity.startNoteListActivity(folder, this)
+    }
 }
