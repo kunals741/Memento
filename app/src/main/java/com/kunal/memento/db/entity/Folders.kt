@@ -8,7 +8,6 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 @Entity(tableName = "memento_table")
 data class Folders(
-    @PrimaryKey(autoGenerate = false)
-    val id: String,
+    @PrimaryKey(autoGenerate = true) val id: Int = 0,
     var folderName: String
 ) : Parcelable

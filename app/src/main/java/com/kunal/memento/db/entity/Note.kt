@@ -18,9 +18,9 @@ import kotlinx.parcelize.Parcelize
     ]
     )
 data class Note(
-    @PrimaryKey
-    val id: String,
-    val folderId : String,
+    @PrimaryKey(autoGenerate = true)
+    val id: Int = 0,
+    val folderId : Int,
     var noteTitle: String,
     var noteText: String? = null,
     //var noteList: String? = null // todo will add support for list and other format later

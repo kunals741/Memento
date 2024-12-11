@@ -17,7 +17,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/etSearch"
+        android:id="@+id/etInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/dim_20dp"
@@ -38,9 +38,9 @@
         android:layout_marginTop="@dimen/dim_12dp"
         android:paddingVertical="@dimen/dim_16dp"
         android:text="@string/create"
-        android:textColor="@color/white"
         android:textAllCaps="true"
+        android:textColor="@color/white"
         android:textSize="@dimen/dim_16sp"
-        app:layout_constraintTop_toBottomOf="@id/etSearch" />
+        app:layout_constraintTop_toBottomOf="@id/etInput" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

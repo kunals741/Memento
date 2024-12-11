@@ -27,14 +27,10 @@ class MainViewModel : ViewModel() {
     }
 
     fun addNewFolder(folderName: String) = viewModelScope.launch {
-        val folder = Folders(
-            id = Random.toString(),
-            folderName = folderName
-        )
-        repository.insertFolder(folder)
+        repository.insertFolder(folderName)
     }
 
-    fun deleteFolderByID(folderID: String) = viewModelScope.launch {
+    fun deleteFolderByID(folderID: Int) = viewModelScope.launch {
         repository.deleteFolderByID(folderID)
     }
 
@@ -46,13 +42,13 @@ class MainViewModel : ViewModel() {
         repository.updateNote(note)
     }
 
-    fun getNotesForFolderId(folderId: String) = viewModelScope.launch {
+    fun getNotesForFolderId(folderId: Int) = viewModelScope.launch {
         repository.getNotesForFolderId(folderId)?.collect {
             _noteList.value = it?.notes ?: emptyList()
         }
     }
 
-    fun deleteNote(noteId: String) = viewModelScope.launch {
+    fun deleteNote(noteId: Int) = viewModelScope.launch {
         repository.deleteNoteByID(noteId)
     }
 }

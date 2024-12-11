@@ -23,7 +23,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/dim_60dp"
                 android:fontFamily="@font/roboto_medium"
-                android:text="@string/hello_kunal"
+                android:text="Hello"
                 android:textColor="@color/white"
                 android:textSize="@dimen/dim_50sp"
                 app:layout_constraintStart_toStartOf="parent"

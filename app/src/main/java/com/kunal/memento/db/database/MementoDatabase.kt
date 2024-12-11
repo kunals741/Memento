@@ -10,7 +10,6 @@ import com.kunal.memento.db.entity.Folders
 import com.kunal.memento.db.entity.Note
 
 @Database(entities = [Folders::class, Note::class], version = 1)
-@TypeConverters(Converters::class)
 abstract class MementoDatabase : RoomDatabase() {
     abstract fun folderDao(): MementoDao
 

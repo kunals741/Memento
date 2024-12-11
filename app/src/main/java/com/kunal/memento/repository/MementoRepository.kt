@@ -10,9 +10,9 @@ class MementoRepository(private val mementoDao: MementoDao) {
 
     val allFolders: Flow<List<Folders>>? = mementoDao.getAllFolders()
 
-    suspend fun insertFolder(folder: Folders) = mementoDao.insertFolder(folder)
+    suspend fun insertFolder(folderName: String) = mementoDao.insertFolder(folderName)
 
-    suspend fun deleteFolderByID(folderId: String) = mementoDao.deleteFolderById(folderId)
+    suspend fun deleteFolderByID(folderId: Int) = mementoDao.deleteFolderById(folderId)
 
     suspend fun addNoteToFolder(note: Note) = mementoDao.insertNote(note)
 
@@ -22,7 +22,7 @@ class MementoRepository(private val mementoDao: MementoDao) {
         content = note.noteText
     )
 
-    fun getNotesForFolderId(folderId: String): Flow<FolderWithNotes?>? = mementoDao.getNotesForFolderId(folderId)
+    fun getNotesForFolderId(folderId: Int): Flow<FolderWithNotes?>? = mementoDao.getNotesForFolderId(folderId)
 
-    suspend fun deleteNoteByID(noteId: String) = mementoDao.deleteNoteById(noteId)
+    suspend fun deleteNoteByID(noteId: Int) = mementoDao.deleteNoteById(noteId)
 }
