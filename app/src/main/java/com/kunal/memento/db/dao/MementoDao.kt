@@ -22,7 +22,6 @@ interface MementoDao {
     suspend fun deleteFolderById(folderId: Int)
 
     @Insert
-    @Query("INSERT INTO note_table (note) VALUES (:note)")
     suspend fun insertNote(note: Note)
 
     @Query("UPDATE note_table SET noteTitle = :title, noteText = :content WHERE id = :noteId")

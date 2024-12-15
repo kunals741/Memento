@@ -38,7 +38,7 @@ app/build/
 .kotlin/
 
 # Firebase and Google Services
-google-services.json
+app/google-services.json
 .firebase/
 
 # Dependency caches

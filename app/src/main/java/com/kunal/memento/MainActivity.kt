@@ -2,17 +2,22 @@ package com.kunal.memento
 
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.view.LayoutInflater
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import com.google.android.material.bottomsheet.BottomSheetDialog
+import com.kunal.memento.MainApplication.Companion.auth
 import com.kunal.memento.adapter.FolderAdapter
 import com.kunal.memento.adapter.FolderClickListener
 import com.kunal.memento.adapter.GridSpacingItemDecoration
 import com.kunal.memento.constants.SharedPrefConstants
 import com.kunal.memento.databinding.ActivityMainBinding
+import com.kunal.memento.databinding.DialogAlertBinding
 import com.kunal.memento.db.entity.Folders
+import com.kunal.memento.login.LoginActivity
 import com.kunal.memento.model.BottomsheetRequestData
 import kotlinx.coroutines.launch
 
@@ -39,7 +44,7 @@ class MainActivity : AppCompatActivity(), FolderClickListener {
     }
 
     private fun initView() = with(binding) {
-        handleUserName()
+        //handleUserName()
         rvFolders.adapter = FolderAdapter(folderClickListener = this@MainActivity)
         rvFolders.addItemDecoration(
             GridSpacingItemDecoration(
@@ -62,6 +67,9 @@ class MainActivity : AppCompatActivity(), FolderClickListener {
             ) { folderName ->
                 viewModel.addNewFolder(folderName)
             }
+        }
+        ivLogout.setOnClickListener {
+            showLogoutDialog()
         }
     }
 
@@ -96,6 +104,25 @@ class MainActivity : AppCompatActivity(), FolderClickListener {
         } else {
             binding.tvHeader.text = getString(R.string.hello_user, userName)
         }
+    }
+
+    private fun showLogoutDialog() {
+        val dialogView = DialogAlertBinding.inflate(LayoutInflater.from(this))
+        val bottomsheetDialog = BottomSheetDialog(this)
+        bottomsheetDialog.setContentView(dialogView.root)
+        bottomsheetDialog.setCancelable(true)
+
+        dialogView.btnPositive.setOnClickListener {
+            auth.signOut()
+            LoginActivity.startLoginActivity(this)
+            finish()
+        }
+
+        dialogView.btnNegative.setOnClickListener {
+            bottomsheetDialog.dismiss()
+        }
+
+        bottomsheetDialog.show()
     }
 
     private fun getFolderAdapter() = (binding.rvFolders.adapter as FolderAdapter)
